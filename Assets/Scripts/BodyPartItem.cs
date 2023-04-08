@@ -17,7 +17,6 @@ namespace DefaultNamespace
         
         private Vector3 _currentTarget;
 
-        private List<Vector3> points;
         public Queue<Vector3> lastPoints;
         private float timer;
         private int seconds;
@@ -28,7 +27,6 @@ namespace DefaultNamespace
             holdingCharacter = character;
             _connectedBodyPartItem = connectedBodyPart;
             _currentTarget = Vector3.one * -1;
-            points = new List<Vector3>();
             lastPoints = new Queue<Vector3>();
             this.gameObject.SetActive(true);
             _connectedBodyPartItem?.SetConnected(true);
@@ -50,7 +48,6 @@ namespace DefaultNamespace
         private void UpdatePointList()
         {
             lastPoints.Enqueue(this.transform.position);
-            points.Add(this.transform.position);
         }
 
         public void SetConnected(bool isConnect)
