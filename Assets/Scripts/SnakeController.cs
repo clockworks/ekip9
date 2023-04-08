@@ -41,5 +41,10 @@ namespace DefaultNamespace
             bodyPart.Initialize(character, BodyParts[lastIndex]);
             BodyParts.Add(bodyPart);
         }
+
+        public void SetActive(bool isActive)
+        {
+            this.gameObject.SetActive(isActive);
+        }
     }
 }

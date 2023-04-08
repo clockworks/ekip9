@@ -10,6 +10,9 @@ namespace DefaultNamespace.TurnBasedGame
         [SerializeField] private Camera viewCamera;
         [SerializeField] private LayerMask hitLayer;
 
+        [SerializeField] private Transform playerSelection;
+        [SerializeField] private Transform opponnetSelection;
+        
         private RaycastHit _hitInfo;
         private Action<Character> _playerCharacterSelected;
 
@@ -28,6 +31,15 @@ namespace DefaultNamespace.TurnBasedGame
                 if (Physics.Raycast(ray, out _hitInfo, RAYCAST_DISTANCE, hitLayer))
                 {
                     Character character = _hitInfo.collider.GetComponent<Character>();
+                    if (character.IsPlayer)
+                    {
+                        playerSelection.transform.position = character.transform.position;
+                    }
+                    else
+                    {
+                        opponnetSelection.transform.position = character.transform.position ;
+                    }
+                    
                     if (character != null)
                     {
                         character.Select();

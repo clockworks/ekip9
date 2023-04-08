@@ -5,14 +5,6 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
 
-    private Rigidbody _rigidbody;
-
-
-    private void Awake()
-    {
-        _rigidbody = this.GetComponent<Rigidbody>();
-    }
-
     private void Update()
     {
         Move();
@@ -28,7 +20,6 @@ public class MovementController : MonoBehaviour
 
         Vector3 newPosition = transform.forward * movementSpeed * Time.deltaTime;
         this.transform.position += newPosition;
-        // _rigidbody.MovePosition(newPosition);
     }
 
     private void Rotate()

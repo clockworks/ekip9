@@ -17,7 +17,7 @@ namespace DefaultNamespace.TurnBasedGame
         {
             Opponent = opponent;
         }
-        
+
         public virtual void SelectAbility(Ability ability)
         {
             SelectedAbility = ability;
@@ -30,6 +30,24 @@ namespace DefaultNamespace.TurnBasedGame
 
         public virtual void StartTurn()
         {
+        }
+
+        public void SetCharacters(List<Character> characters)
+        {
+            if (Characters != null)
+            {
+                for (int i = 0; i < Characters.Count; i++)
+                {
+                    Characters[i].SetActive(false);
+                }
+            }
+            
+            Characters = characters;
+            
+            for (int i = 0; i < Characters.Count; i++)
+            {
+                Characters[i].SetActive(true);
+            }
             
         }
     }
