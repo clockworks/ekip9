@@ -1,9 +1,18 @@
+using System;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
+
+    private Rigidbody _rigidbody;
+
+
+    private void Awake()
+    {
+        _rigidbody = this.GetComponent<Rigidbody>();
+    }
 
     private void Update()
     {
@@ -18,9 +27,9 @@ public class MovementController : MonoBehaviour
         Vector3 movementDirection = new Vector3(horizontalInput, 0f, 0);
         movementDirection.Normalize();
 
-        Vector3 newPosition = transform.forward * movementSpeed * Time.deltaTime;
-
-        transform.position += newPosition;
+        Vector3 newPosition = _rigidbody.transform.position + transform.forward * movementSpeed * Time.deltaTime;
+        _rigidbody.MovePosition(newPosition);
+        // transform.position += newPosition;
     }
 
     private void Rotate()
