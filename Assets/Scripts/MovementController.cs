@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
@@ -27,8 +26,9 @@ public class MovementController : MonoBehaviour
         Vector3 movementDirection = new Vector3(horizontalInput, 0f, 0);
         movementDirection.Normalize();
 
-        Vector3 newPosition = _rigidbody.transform.position + transform.forward * movementSpeed * Time.deltaTime;
-        _rigidbody.MovePosition(newPosition);
+        Vector3 newPosition = transform.forward * movementSpeed * Time.deltaTime;
+        this.transform.position += newPosition;
+        // _rigidbody.MovePosition(newPosition);
     }
 
     private void Rotate()

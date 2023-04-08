@@ -67,6 +67,7 @@ namespace DefaultNamespace
                 UpdatePointList();
                 timer = 0;
             }
+            
             Move();
         }
 
@@ -84,10 +85,7 @@ namespace DefaultNamespace
 
             Vector3 direction = (_currentTarget - transform.position).normalized;
             
-            Vector3 newPosition = _rigidbody.transform.position + direction * speed * Time.deltaTime;
-            _rigidbody.MovePosition(newPosition);
-            
-            // this.transform.position += direction * speed * Time.deltaTime;
+            this.transform.position += direction * speed * Time.deltaTime;
             float distance = Vector3.Distance(this.transform.position, _currentTarget);
 
             if (distance <= threshold)
