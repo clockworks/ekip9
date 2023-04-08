@@ -22,7 +22,7 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.BackQuote))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 AddBodyPart(defaultCharacter);
             }

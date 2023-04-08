@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdingCharacter: {fileID: 0}
-  speed: 10
+  speed: 35
   addInterval: 0.1
   threshold: 0.1
 --- !u!65 &-7748840834032738225

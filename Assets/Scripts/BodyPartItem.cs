@@ -18,6 +18,7 @@ namespace DefaultNamespace
         private Vector3 _currentTarget;
 
         public Queue<Vector3> lastPoints;
+        private Rigidbody _rigidbody;
         private float timer;
         private int seconds;
         private bool _isConnected;
@@ -30,6 +31,7 @@ namespace DefaultNamespace
             lastPoints = new Queue<Vector3>();
             this.gameObject.SetActive(true);
             _connectedBodyPartItem?.SetConnected(true);
+            _rigidbody = this.GetComponent<Rigidbody>();
         }
 
         private void Update()
@@ -81,7 +83,11 @@ namespace DefaultNamespace
             }
 
             Vector3 direction = (_currentTarget - transform.position).normalized;
-            this.transform.position += direction * speed * Time.deltaTime;
+            
+            Vector3 newPosition = _rigidbody.transform.position + direction * speed * Time.deltaTime;
+            _rigidbody.MovePosition(newPosition);
+            
+            // this.transform.position += direction * speed * Time.deltaTime;
             float distance = Vector3.Distance(this.transform.position, _currentTarget);
 
             if (distance <= threshold)

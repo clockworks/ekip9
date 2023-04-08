@@ -29,7 +29,6 @@ public class MovementController : MonoBehaviour
 
         Vector3 newPosition = _rigidbody.transform.position + transform.forward * movementSpeed * Time.deltaTime;
         _rigidbody.MovePosition(newPosition);
-        // transform.position += newPosition;
     }
 
     private void Rotate()
