@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using DefaultNamespace.TurnBasedGame;
 using UnityEngine;
 
 public class Bonus : MonoBehaviour
@@ -10,15 +11,19 @@ public class Bonus : MonoBehaviour
     private Knight knight;
     void OnTriggerEnter(Collider other) 
     {
-        if (other.gameObject.CompareTag("Player")) // See if the GameObject that we collided with has the tag "Player"
-        {
-            knight = other.gameObject.GetComponent<Knight>();
-            knight.HP++;
-            renderer.enabled = false;
-            Destroy(this.gameObject);
-            //renderer.enabled = false; // Enable the renderer, making the GameObject invisible
+        //if (other.gameObject.CompareTag("Head")) // See if the GameObject that we collided with has the tag "Player"
+        //{
+        
+        GameManager.Instance.BonusHealth++;
+        renderer.enabled = false;
+        Destroy(this.gameObject);
+
+        
+        //knight = other.gameObject.GetComponent<Knight>();
+        //knight.HP++;
+        //renderer.enabled = false; // Enable the renderer, making the GameObject invisible
             
-        }
+        //}
     }
     
     

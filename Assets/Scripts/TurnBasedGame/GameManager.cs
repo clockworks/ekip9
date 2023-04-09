@@ -12,6 +12,8 @@ namespace DefaultNamespace.TurnBasedGame
         Archer,
         Mage
     }
+    
+    
 
     public class GameManager : Singleton<GameManager>
     {
@@ -25,6 +27,7 @@ namespace DefaultNamespace.TurnBasedGame
         public TurnPanel TurnPanel;
         public bool IsPlayerWin;
         public bool IsGameFinished;
+        public int BonusHealth;
 
         public Level ActiveLevel;
 
