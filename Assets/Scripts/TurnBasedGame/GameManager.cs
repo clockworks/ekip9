@@ -70,6 +70,7 @@ namespace DefaultNamespace.TurnBasedGame
 
             if ((IsPlayerTurn && Player.ActionPoint <= 0))
             {
+                PlayerInputController.Disable();
                 StartCoroutine(WaitAndExecute(() => { SwitchTurn(); }, 4f));
             }
         }
