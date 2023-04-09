@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571379, b: 0.3069225, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -726,7 +726,7 @@ MonoBehaviour:
   Camera: {fileID: 215530991}
   OpponentAI: {fileID: 2118779033}
   PlayerInputController: {fileID: 1989834873}
-  AddedCharacterTypes: 
+  AddedCharacterTypes: 0100000001000000
 --- !u!1 &315234906
 GameObject:
   m_ObjectHideFlags: 0

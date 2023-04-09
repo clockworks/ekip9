@@ -10,7 +10,6 @@ namespace DefaultNamespace
     public abstract class Character : MonoBehaviour
     {
         public int HP;
-        public List<Ability> Abilities;
         public bool IsPlayer;
         public int Damage;
         public int AttackActionPoint = 2;
