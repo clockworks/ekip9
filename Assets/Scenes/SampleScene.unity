@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571379, b: 0.3069225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 19841047}
   - component: {fileID: 19841046}
   - component: {fileID: 19841049}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ MonoBehaviour:
   Camera: {fileID: 215530991}
   OpponentAI: {fileID: 2118779033}
   PlayerInputController: {fileID: 1989834873}
-  AddedCharacterTypes: 0100000000000000
+  AddedCharacterTypes: 
 --- !u!1 &315234906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,13 +1857,14 @@ GameObject:
   - component: {fileID: 861385412}
   - component: {fileID: 861385411}
   - component: {fileID: 861385410}
-  m_Layer: 0
+  - component: {fileID: 861385413}
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &861385409
 Transform:
   m_ObjectHideFlags: 0
@@ -1942,6 +1943,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861385408}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &861385413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861385408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dc7f8955b9984ab88a444460765a9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &863124053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7644462252643330351, guid: fc31a17f116ea184490e1121ff958c5f,
@@ -2682,7 +2695,7 @@ MonoBehaviour:
   Opponent: {fileID: 0}
   IsPlayerTurn: 0
   PlayerInputController: {fileID: 0}
-  SnakeController: {fileID: 1566598571}
+  SnakeController: {fileID: 0}
   TurnPanel: {fileID: 975953160}
   IsPlayerWin: 0
   IsGameFinished: 0
@@ -2771,7 +2784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1478518607
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3086,18 +3099,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527828855}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1566598571 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4999254232375311572, guid: f3cb9a363a32a894c9b13a2629410c86,
-    type: 3}
-  m_PrefabInstance: {fileID: 4999254232035873673}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f96e23716d4abd9c55b6222d946fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1581852995
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3112,7 @@ GameObject:
   - component: {fileID: 1581852998}
   - component: {fileID: 1581852997}
   - component: {fileID: 1581853000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4178,6 +4179,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7303564499266472, guid: f3cb9a363a32a894c9b13a2629410c86, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4999254232375311573, guid: f3cb9a363a32a894c9b13a2629410c86,
         type: 3}
       propertyPath: m_Name

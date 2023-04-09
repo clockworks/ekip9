@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class Bonus : MonoBehaviour
 {
 
+    private MeshRenderer renderer;
+    private Knight knight;
     void OnTriggerEnter(Collider other) 
     {
-        Debug.Log("OnTriggerEnter");
-        
-        if (other.gameObject.tag=="Player")
+        if (other.gameObject.CompareTag("Player")) // See if the GameObject that we collided with has the tag "Player"
         {
-            //If gameobject has tag "BuyPottery", than destory it.
-            Destroy(other.gameObject);
+            knight = other.gameObject.GetComponent<Knight>();
+            knight.HP++;
+            renderer.enabled = false;
+            Destroy(this.gameObject);
+            //renderer.enabled = false; // Enable the renderer, making the GameObject invisible
+            
         }
     }
     
@@ -21,6 +26,8 @@ public class Bonus : MonoBehaviour
     void Start()
     {
         Debug.Log("Start");
+        renderer = GetComponent<MeshRenderer>(); // Get the Mesh Renderer that is attached to this GameObject
+        renderer.enabled = true; // Disable the renderer so that it is invisisble
     }
 
     // Update is called once per frame
