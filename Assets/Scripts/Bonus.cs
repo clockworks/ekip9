@@ -13,7 +13,7 @@ public class Bonus : MonoBehaviour
     {
         //if (other.gameObject.CompareTag("Head")) // See if the GameObject that we collided with has the tag "Player"
         //{
-        
+        Debug.Log("Collide");
         GameManager.Instance.BonusHealth++;
         renderer.enabled = false;
         Destroy(this.gameObject);
