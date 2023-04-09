@@ -24,7 +24,7 @@ namespace DefaultNamespace
         public Character TargetCharacter;
         public GameObject Projectile;
 
-        private void Awake()
+        public void Initialize()
         {
             HPText.text = HP.ToString();
             Animator.SetTrigger("Idle");

@@ -1,43 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using DefaultNamespace.TurnBasedGame;
+using DG.Tweening;
 using UnityEngine;
 
 public class Bonus : MonoBehaviour
 {
-
     private MeshRenderer renderer;
     private Knight knight;
-    void OnTriggerEnter(Collider other) 
-    {
-        //if (other.gameObject.CompareTag("Head")) // See if the GameObject that we collided with has the tag "Player"
-        //{
-        Debug.Log("Collide");
-        GameManager.Instance.BonusHealth++;
-        renderer.enabled = false;
-        Destroy(this.gameObject);
+    [SerializeField] private Transform Model;
 
-        
-        //knight = other.gameObject.GetComponent<Knight>();
-        //knight.HP++;
-        //renderer.enabled = false; // Enable the renderer, making the GameObject invisible
-            
-        //}
+    private void OnTriggerEnter(Collider other)
+    {
+        GameManager.Instance.BonusHealth++;
+        Destroy(this.gameObject);
     }
-    
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         Debug.Log("Start");
-        renderer = GetComponent<MeshRenderer>(); // Get the Mesh Renderer that is attached to this GameObject
-        renderer.enabled = true; // Disable the renderer so that it is invisisble
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Debug.Log("Update");
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.Append(Model.DOLocalMoveY(1, .5f));
+        sequence.Append(Model.DOLocalMoveY(0, .5f));
+        sequence.Append(Model.DOLocalMoveY(1, .5f));
+        sequence.Play();
     }
 }

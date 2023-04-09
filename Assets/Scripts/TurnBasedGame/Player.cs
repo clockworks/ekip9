@@ -31,9 +31,15 @@ namespace DefaultNamespace.TurnBasedGame
                 GameManager.Instance.PlayerInputController.IsActive = true;
             }
             
-            for (int i = 0; i < GameManager.Instance.BonusHealth; i++)
+            for (int i = 0; i < AliveCharacters.Count; i++)
             {
-                AliveCharacters[i].HP++;
+                if (GameManager.Instance.BonusHealth > 0)
+                {
+                    AliveCharacters[i].HP++;
+                    GameManager.Instance.BonusHealth--;
+                }
+                
+                AliveCharacters[i].Initialize();
             }
         }
 
