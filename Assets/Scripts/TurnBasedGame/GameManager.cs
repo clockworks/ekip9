@@ -25,6 +25,8 @@ namespace DefaultNamespace.TurnBasedGame
         public PlayerInputController PlayerInputController;
         public SnakeController SnakeController;
         public TurnPanel TurnPanel;
+        public GameOverPanel GameOverPanel;
+        public Camera GameOverCamera;
         public bool IsPlayerWin;
         public bool IsGameFinished;
         public int BonusHealth;
@@ -37,6 +39,7 @@ namespace DefaultNamespace.TurnBasedGame
             Player = GameObject.Find("PlayerController").GetComponent<Player>();
             SnakeController = GameObject.Find("Snake").GetComponent<SnakeController>();
             TurnPanel = GameObject.FindObjectsOfType<TurnPanel>(true)[0];
+            GameOverPanel = GameObject.FindObjectsOfType<GameOverPanel>(true)[0];
         }
 
         void OnEnable()
@@ -96,6 +99,12 @@ namespace DefaultNamespace.TurnBasedGame
         {
             if (IsPlayerWin)
             {
+                if (ActiveLevel.isLast)
+                {
+                    GameOverPanel.ShowHide(true);
+                    return;
+                }
+                
                 TurnPanel.ShowHide(false);
                 for (int i = 0; i < ActiveLevel.AddedCharacterTypes.Count; i++)
                 {

@@ -12,7 +12,7 @@ namespace DefaultNamespace
         public OpponentAI OpponentAI;
         public PlayerInputController PlayerInputController;
         public List<CharacterType> AddedCharacterTypes;
-
+        public bool isLast;
         public void Initialize()
         {
             this.gameObject.SetActive(true);
