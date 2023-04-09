@@ -22,19 +22,6 @@ namespace DefaultNamespace
             BodyParts.Add(defaultBodyPart);
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                AddBodyPart(CharacterType.Mage);
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                AddBodyPart(CharacterType.Archer);
-            }
-        }
-
         public void AddBodyPart(CharacterType characterType)
         {
             int lastIndex = BodyParts.Count - 1;

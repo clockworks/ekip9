@@ -911,11 +911,11 @@ RectTransform:
   m_Father: {fileID: 975953159}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 818, y: -434}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 74.6}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738155172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3052,11 +3052,6 @@ PrefabInstance:
       propertyPath: opponnetSelection
       value: 
       objectReference: {fileID: 863124053}
-    - target: {fileID: 3075443121461860362, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
-        type: 3}
-      propertyPath: isLast
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4, type: 3}
 --- !u!1001 &4999254232035873673
