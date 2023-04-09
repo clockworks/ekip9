@@ -32,6 +32,7 @@ namespace DefaultNamespace
             this.gameObject.SetActive(true);
             _connectedBodyPartItem?.SetConnected(true);
             _rigidbody = this.GetComponent<Rigidbody>();
+            holdingCharacter.Animator.SetTrigger("Move");
         }
 
         private void Update()

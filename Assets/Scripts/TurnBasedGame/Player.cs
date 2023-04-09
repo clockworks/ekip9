@@ -9,8 +9,6 @@ namespace DefaultNamespace.TurnBasedGame
         public Character SelectedCharacter;
         public Character SelectedOpponentCharacter;
         public Player Opponent;
-        public Ability SelectedAbility;
-        public List<Ability> Abilities;
         public List<Character> Characters;
 
         public void Initialize(Player opponent)
@@ -18,18 +16,20 @@ namespace DefaultNamespace.TurnBasedGame
             Opponent = opponent;
         }
 
-        public virtual void SelectAbility(Ability ability)
-        {
-            SelectedAbility = ability;
-        }
-
-        public virtual void ExecuteAbility()
-        {
-            SelectedAbility.Execute();
-        }
-
         public virtual void StartTurn()
         {
+            if (Index == 0)
+            {
+                GameManager.Instance.PlayerInputController.IsActive = true;
+            }
+        }
+
+        public virtual void StopTurn()
+        {
+            if (Index == 0)
+            {
+                GameManager.Instance.PlayerInputController.IsActive = false;
+            }
         }
 
         public void SetCharacters(List<Character> characters)
@@ -41,14 +41,13 @@ namespace DefaultNamespace.TurnBasedGame
                     Characters[i].SetActive(false);
                 }
             }
-            
+
             Characters = characters;
-            
+
             for (int i = 0; i < Characters.Count; i++)
             {
                 Characters[i].SetActive(true);
             }
-            
         }
     }
 }
