@@ -51,7 +51,10 @@
                 }
             }
         }
-
+        private void Awake() 
+        { 
+           DontDestroyOnLoad(gameObject);
+        }
 
         private void OnApplicationQuit()
         {

@@ -352,7 +352,7 @@ MonoBehaviour:
   HP: 3
   Abilities: []
   IsPlayer: 0
-  Damage: 1
+  Damage: 3
   AttackActionPoint: 2
   HPText: {fileID: 1262236184696389407}
   Animator: {fileID: 1419321274751900853}

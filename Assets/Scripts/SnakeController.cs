@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Unity.Mathematics;
+using DefaultNamespace.TurnBasedGame;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -9,6 +9,8 @@ namespace DefaultNamespace
         [SerializeField] private Character defaultCharacter;
         [SerializeField] private BodyPartItem defaultBodyPart;
         [SerializeField] private float spaceBetweenPart;
+
+        public List<GameObject> CharacterPrefabs;
 
         public GameObject bodyPartPrefab;
         public List<BodyPartItem> BodyParts;
@@ -24,11 +26,16 @@ namespace DefaultNamespace
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                AddBodyPart(defaultCharacter);
+                AddBodyPart(CharacterType.Knight);
+            }
+            
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                AddBodyPart(CharacterType.Archer);
             }
         }
 
-        private void AddBodyPart(Character character)
+        public void AddBodyPart(CharacterType characterType)
         {
             int lastIndex = BodyParts.Count - 1;
             var lastBodyPartTransform = BodyParts[lastIndex].transform;
@@ -37,6 +44,10 @@ namespace DefaultNamespace
             var bodyPartObject = Instantiate(bodyPartPrefab, point, lastBodyPartTransform.rotation);
             bodyPartObject.transform.SetParent(this.transform);
             var bodyPart = bodyPartObject.GetComponent<BodyPartItem>();
+            var characterClone = Instantiate(CharacterPrefabs[(int) characterType]);
+            characterClone.transform.SetParent(bodyPart.transform);
+            characterClone.transform.localPosition = Vector3.zero;
+            var character = characterClone.GetComponent<Character>();
 
             bodyPart.Initialize(character, BodyParts[lastIndex]);
             BodyParts.Add(bodyPart);

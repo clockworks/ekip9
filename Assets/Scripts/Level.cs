@@ -11,6 +11,7 @@ namespace DefaultNamespace
         public Camera Camera;
         public OpponentAI OpponentAI;
         public PlayerInputController PlayerInputController;
+        public List<CharacterType> AddedCharacterTypes;
 
         public void Initialize()
         {
@@ -18,7 +19,7 @@ namespace DefaultNamespace
             GameManager.Instance.Player.SetCharacters(PlayerCharacters);
             GameManager.Instance.Opponent.SetCharacters(OpponnentChacarters);
             GameManager.Instance.PlayerInputController = PlayerInputController;
-            GameManager.Instance.Initialize();
+            GameManager.Instance.Initialize(this);
             Camera.gameObject.SetActive(true);
         }
     }

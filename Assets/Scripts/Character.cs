@@ -76,6 +76,7 @@ namespace DefaultNamespace
                 player.AliveCharacters.Remove(this);
                 GameManager.Instance.PlayerInputController.opponnetSelection.transform.position = new Vector3(0, 30, 0);
                 GameManager.Instance.Player.SelectedOpponentCharacter = null;
+                GameManager.Instance.CheckGameFinish();
                 Destroy(this.gameObject);
             }
         }

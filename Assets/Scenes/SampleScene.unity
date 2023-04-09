@@ -726,6 +726,7 @@ MonoBehaviour:
   Camera: {fileID: 215530991}
   OpponentAI: {fileID: 2118779033}
   PlayerInputController: {fileID: 1989834873}
+  AddedCharacterTypes: 0100000000000000
 --- !u!1 &315234906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,18 +1209,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &459000517 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5977404298754493362, guid: f3cb9a363a32a894c9b13a2629410c86,
-    type: 3}
-  m_PrefabInstance: {fileID: 4999254232035873673}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fde3d666a34aceba62f0b10d152829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &533719701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,7 +1506,7 @@ GameObject:
   - component: {fileID: 643640695}
   - component: {fileID: 643640694}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2071,7 +2060,7 @@ GameObject:
   - component: {fileID: 975953159}
   - component: {fileID: 975953160}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: Turn_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2693,9 +2682,11 @@ MonoBehaviour:
   Opponent: {fileID: 0}
   IsPlayerTurn: 0
   PlayerInputController: {fileID: 0}
+  SnakeController: {fileID: 1566598571}
   TurnPanel: {fileID: 975953160}
   IsPlayerWin: 0
   IsGameFinished: 0
+  ActiveLevel: {fileID: 0}
 --- !u!4 &1376647351
 Transform:
   m_ObjectHideFlags: 0
@@ -3095,6 +3086,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527828855}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1566598571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4999254232375311572, guid: f3cb9a363a32a894c9b13a2629410c86,
+    type: 3}
+  m_PrefabInstance: {fileID: 4999254232035873673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f96e23716d4abd9c55b6222d946fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1581852995
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,20 +4178,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4999254232375311572, guid: f3cb9a363a32a894c9b13a2629410c86,
-        type: 3}
-      propertyPath: defaultCharacter
-      value: 
-      objectReference: {fileID: 459000517}
     - target: {fileID: 4999254232375311573, guid: f3cb9a363a32a894c9b13a2629410c86,
         type: 3}
       propertyPath: m_Name
       value: Snake
-      objectReference: {fileID: 0}
-    - target: {fileID: 4999254232375311573, guid: f3cb9a363a32a894c9b13a2629410c86,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4999254232375311575, guid: f3cb9a363a32a894c9b13a2629410c86,
         type: 3}
@@ -4245,18 +4238,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6139590955806473848, guid: f3cb9a363a32a894c9b13a2629410c86,
-        type: 3}
-      propertyPath: holdingCharacter
-      value: 
-      objectReference: {fileID: 459000517}
-    - target: {fileID: 6139590955806473849, guid: f3cb9a363a32a894c9b13a2629410c86,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6677535779215907787, guid: f3cb9a363a32a894c9b13a2629410c86, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3cb9a363a32a894c9b13a2629410c86, type: 3}
 --- !u!1001 &5932081266607163082
 PrefabInstance:

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace.TurnBasedGame
 {
@@ -20,13 +21,31 @@ namespace DefaultNamespace.TurnBasedGame
         public OpponentAI Opponent;
         public bool IsPlayerTurn;
         public PlayerInputController PlayerInputController;
+        public SnakeController SnakeController;
         public TurnPanel TurnPanel;
         public bool IsPlayerWin;
         public bool IsGameFinished;
 
-        public void Initialize()
+        public Level ActiveLevel;
+
+        private void InitFields()
+        {
+            IsGameFinished = false;
+            Player = GameObject.Find("PlayerController").GetComponent<Player>();
+            SnakeController = GameObject.Find("Snake").GetComponent<SnakeController>();
+            TurnPanel = GameObject.FindObjectsOfType<TurnPanel>(true)[0];
+        }
+
+        void OnEnable()
+        {
+            Debug.Log("OnEnable called");
+            SceneManager.sceneLoaded += (x, y) => InitFields();
+        }
+
+        public void Initialize(Level level)
         {
             TurnPanel.ShowHide(true);
+            ActiveLevel = level;
             IsPlayerTurn = true;
             PlayerInputController.IsActive = true;
             PlayerInputController.IsActive = true;
@@ -44,18 +63,14 @@ namespace DefaultNamespace.TurnBasedGame
 
             if ((IsPlayerTurn && Player.ActionPoint <= 0))
             {
-                StartCoroutine(GameManager.Instance.WaitAndExecute(() => { SwitchTurn(); }, 4f));
+                StartCoroutine(WaitAndExecute(() => { SwitchTurn(); }, 4f));
             }
         }
 
         public void SwitchTurn()
         {
-            IsGameFinished = CheckGameFinish();
-
             if (IsGameFinished)
             {
-                TurnPanel.TurnText.text = IsPlayerWin ? "Win!" : "Lose!";
-                StartCoroutine(TimerCoroutine(null,3));
                 return;
             }
 
@@ -73,7 +88,27 @@ namespace DefaultNamespace.TurnBasedGame
         }
 
 
-        public bool CheckGameFinish()
+        public void GameFinished()
+        {
+            if (IsPlayerWin)
+            {
+                TurnPanel.ShowHide(false);
+                for (int i = 0; i < ActiveLevel.AddedCharacterTypes.Count; i++)
+                {
+                    SnakeController.AddBodyPart(ActiveLevel.AddedCharacterTypes[i]);
+                }
+
+                SnakeController.gameObject.SetActive(true);
+                ActiveLevel.gameObject.SetActive(false);
+            }
+            else
+            {
+                StopAllCoroutines();
+                SceneManager.LoadScene(0);
+            }
+        }
+
+        public void CheckGameFinish()
         {
             IsGameFinished = false;
 
@@ -88,7 +123,11 @@ namespace DefaultNamespace.TurnBasedGame
                 IsPlayerWin = true;
             }
 
-            return IsGameFinished;
+            if (IsGameFinished)
+            {
+                TurnPanel.TurnText.text = IsPlayerWin ? "Win!" : "Lose!";
+                StartCoroutine(TimerCoroutine(GameFinished, 3));
+            }
         }
 
         public IEnumerator WaitAndExecute(Action action, float duration)
@@ -101,7 +140,7 @@ namespace DefaultNamespace.TurnBasedGame
         {
             TurnPanel.TimerText.text = duration.ToString();
             TurnPanel.TimerText.gameObject.SetActive(true);
-            
+
             for (int i = duration; i >= 0; i--)
             {
                 TurnPanel.TimerText.text = i.ToString();
