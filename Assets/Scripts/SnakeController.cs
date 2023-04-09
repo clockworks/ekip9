@@ -26,7 +26,7 @@ namespace DefaultNamespace
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                AddBodyPart(CharacterType.Knight);
+                AddBodyPart(CharacterType.Mage);
             }
             
             if (Input.GetKeyDown(KeyCode.Q))

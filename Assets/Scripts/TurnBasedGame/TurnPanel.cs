@@ -17,7 +17,7 @@ namespace DefaultNamespace.TurnBasedGame
 
         public void ShowTurnText(bool isPlayerTurn)
         {
-            TurnText.text = isPlayerTurn ? "Your Turn" : "Oppponent Turn";
+            TurnText.text = isPlayerTurn ? "Your Turn" : "Opponent Turn";
             TurnText.transform.DOShakeScale(.2f);
         }
 

@@ -19,11 +19,6 @@ public class Bonus : MonoBehaviour
     {
         Debug.Log("Start");
 
-        Sequence sequence = DOTween.Sequence();
-
-        sequence.Append(Model.DOLocalMoveY(1, .5f));
-        sequence.Append(Model.DOLocalMoveY(0, .5f));
-        sequence.Append(Model.DOLocalMoveY(1, .5f));
-        sequence.Play();
+        Model.DOLocalMoveY(1, 1f).SetLoops(-1, LoopType.Yoyo);
     }
 }
