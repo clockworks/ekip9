@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace DefaultNamespace.TurnBasedGame
@@ -10,16 +11,24 @@ namespace DefaultNamespace.TurnBasedGame
         public Character SelectedOpponentCharacter;
         public Player Opponent;
         public List<Character> Characters;
+        public List<Character> AliveCharacters;
+        public int ActionPoint;
 
         public void Initialize(Player opponent)
         {
             Opponent = opponent;
+            AliveCharacters = Characters;
         }
 
         public virtual void StartTurn()
         {
+            ActionPoint = 4;
+
+            GameManager.Instance.TurnPanel.ShowTurnText(Index == 0);
+            
             if (Index == 0)
             {
+                GameManager.Instance.TurnPanel.ActionPointChange(ActionPoint);
                 GameManager.Instance.PlayerInputController.IsActive = true;
             }
         }
@@ -28,7 +37,9 @@ namespace DefaultNamespace.TurnBasedGame
         {
             if (Index == 0)
             {
-                GameManager.Instance.PlayerInputController.IsActive = false;
+                GameManager.Instance.PlayerInputController.Disable();
+                SelectedCharacter = null;
+                SelectedOpponentCharacter = null;
             }
         }
 
@@ -47,6 +58,15 @@ namespace DefaultNamespace.TurnBasedGame
             for (int i = 0; i < Characters.Count; i++)
             {
                 Characters[i].SetActive(true);
+            }
+        }
+
+        public void DecreaseActionPoint(int actionPoint)
+        {
+            ActionPoint -= actionPoint;
+            if (Index == 0)
+            {
+                GameManager.Instance.TurnPanel.ActionPointChange(ActionPoint);
             }
         }
     }

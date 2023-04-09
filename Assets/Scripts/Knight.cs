@@ -1,7 +1,6 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
-using System.Collections;
+using DefaultNamespace.TurnBasedGame;
 
 namespace DefaultNamespace
 {
@@ -11,14 +10,15 @@ namespace DefaultNamespace
         {
             base.Attack();
 
+            Animator.SetTrigger("Move");
             Model.transform.DOMove(TargetCharacter.AttackPoint.position, 1)
-                .OnStart(() => { Animator.SetTrigger("Move"); })
                 .OnComplete(() =>
                     {
                         Animator.SetTrigger("Attack");
-                        StartCoroutine(WaitAndExecute(() =>
+                        StartCoroutine(GameManager.Instance.WaitAndExecute(() =>
                                                       {
                                                           TargetCharacter.TakeDamage(Damage);
+                                                          AttackButton.interactable = false;
                                                           Model.transform.localPosition = Vector3.zero;
                                                       },
                                                       1
@@ -26,12 +26,6 @@ namespace DefaultNamespace
                         );
                     }
                 );
-        }
-
-        private IEnumerator WaitAndExecute(Action action, float duration)
-        {
-            yield return new WaitForSecondsRealtime(duration);
-            action.Invoke();
         }
     }
 }

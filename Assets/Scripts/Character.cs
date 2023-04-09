@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DefaultNamespace.TurnBasedGame;
 using TMPro;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace DefaultNamespace
         public List<Ability> Abilities;
         public bool IsPlayer;
         public int Damage;
-        public int ActionPoint = 1;
+        public int AttackActionPoint = 2;
         public TextMeshPro HPText;
         public Animator Animator;
         public GameObject Model;
@@ -21,6 +22,7 @@ namespace DefaultNamespace
         public Canvas Canvas;
         public Transform AttackPoint;
         public Character TargetCharacter;
+        public GameObject Projectile;
 
         private void Awake()
         {
@@ -44,26 +46,36 @@ namespace DefaultNamespace
         {
             AttackButton.interactable = isAttackButtonActive;
         }
-        
+
         public virtual void Attack()
         {
             var character = IsPlayer
                 ? GameManager.Instance.Player.SelectedOpponentCharacter
                 : GameManager.Instance.Opponent.SelectedOpponentCharacter;
             TargetCharacter = character;
+            
+            if (IsPlayer)
+            {
+                AttackButton.interactable = false;
+                GameManager.Instance.ActionExecuted(AttackActionPoint, IsPlayer);
+            }
         }
 
         public virtual void TakeDamage(int damage)
         {
             HP -= damage;
             HPText.text = HP.ToString();
-            Death();
+            Kill();
         }
 
-        public virtual void Death()
+        public virtual void Kill()
         {
             if (HP <= 0)
             {
+                var player = IsPlayer ? GameManager.Instance.Player : GameManager.Instance.Opponent;
+                player.AliveCharacters.Remove(this);
+                GameManager.Instance.PlayerInputController.opponnetSelection.transform.position = new Vector3(0, 30, 0);
+                GameManager.Instance.Player.SelectedOpponentCharacter = null;
                 Destroy(this.gameObject);
             }
         }

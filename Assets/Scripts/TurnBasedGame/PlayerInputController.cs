@@ -10,8 +10,8 @@ namespace DefaultNamespace.TurnBasedGame
         [SerializeField] private Camera viewCamera;
         [SerializeField] private LayerMask hitLayer;
 
-        [SerializeField] private Transform playerSelection;
-        [SerializeField] private Transform opponnetSelection;
+        [SerializeField] public Transform playerSelection;
+        [SerializeField] public Transform opponnetSelection;
 
         private RaycastHit _hitInfo;
         public bool IsActive;
@@ -47,6 +47,15 @@ namespace DefaultNamespace.TurnBasedGame
                     player.SelectedCharacter?.UpdateView(player.SelectedOpponentCharacter != null);
                 }
             }
+        }
+
+        public void Disable()
+        {
+            var player = GameManager.Instance.Player;
+            player.SelectedCharacter?.Deselect();
+            playerSelection.transform.position = new Vector3(0, -50, 0);
+            opponnetSelection.transform.position = new Vector3(0, -50, 0);
+            IsActive = false;
         }
 
         public void SetActiveOpponentSelection(bool isSelectionActive)
