@@ -18,6 +18,7 @@ namespace DefaultNamespace
         public GameObject Model;
 
         public Button AttackButton;
+        public TextMeshProUGUI ButtonText;
         public Canvas Canvas;
         public Transform AttackPoint;
         public Character TargetCharacter;
@@ -32,7 +33,11 @@ namespace DefaultNamespace
         public void Select()
         {
             if (IsPlayer)
+            {
                 Canvas.gameObject.SetActive(true);
+                ButtonText = AttackButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                ButtonText.text = $"Attack {Damage} \n Action Point \n {AttackActionPoint}";
+            }
         }
 
         public void Deselect()
@@ -60,7 +65,7 @@ namespace DefaultNamespace
                 GameManager.Instance.PlayerInputController.opponnetSelection.position = new Vector3(0, 30, 0);
                 GameManager.Instance.PlayerInputController.playerSelection.position = new Vector3(0, 30, 0);
             }
-            
+
             GameManager.Instance.Player.SelectedOpponentCharacter = null;
             GameManager.Instance.Opponent.SelectedOpponentCharacter = null;
         }

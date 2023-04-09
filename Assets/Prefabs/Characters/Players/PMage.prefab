@@ -238,7 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Attack
+  m_text: Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.08
-  m_fontSizeBase: 46.08
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -402,7 +402,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 1
-  Abilities: []
   IsPlayer: 1
   Damage: 2
   AttackActionPoint: 2
@@ -410,10 +409,12 @@ MonoBehaviour:
   Animator: {fileID: 3566873210020559329}
   Model: {fileID: 4774679918137158534}
   AttackButton: {fileID: 2505382865420234267}
+  ButtonText: {fileID: 0}
   Canvas: {fileID: 6718082199076337458}
   AttackPoint: {fileID: 5531423289343241223}
   TargetCharacter: {fileID: 0}
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1401622402102630374, guid: 8f2574b43a7a9934a8a3bfd0fabfdb8d,
+    type: 3}
 --- !u!1 &7024741915223877497
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,8 +669,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DefaultNamespace.Knight, Assembly-CSharp
+      - m_Target: {fileID: 6879648048770164608}
+        m_TargetAssemblyTypeName: DefaultNamespace.Mage, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 1
         m_Arguments:
