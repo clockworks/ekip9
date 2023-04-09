@@ -30,6 +30,11 @@ namespace DefaultNamespace.TurnBasedGame
                 GameManager.Instance.TurnPanel.ActionPointChange(ActionPoint);
                 GameManager.Instance.PlayerInputController.IsActive = true;
             }
+            
+            for (int i = 0; i < GameManager.Instance.BonusHealth; i++)
+            {
+                AliveCharacters[i].HP++;
+            }
         }
 
         public virtual void StopTurn()
