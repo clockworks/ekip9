@@ -3457,6 +3457,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580030438, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4, type: 3}
+      propertyPath: playerSelection
+      value: 
+      objectReference: {fileID: 1176886623}
+    - target: {fileID: 580030438, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4, type: 3}
+      propertyPath: opponnetSelection
+      value: 
+      objectReference: {fileID: 863124053}
+    - target: {fileID: 1552760238, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476983062691150651, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3075443119470877478, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
         type: 3}
       propertyPath: playerSelection
@@ -3527,6 +3544,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Levels
       objectReference: {fileID: 0}
+    - target: {fileID: 3075443120317800252, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3075443121418041734, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
         type: 3}
       propertyPath: playerSelection
@@ -3537,6 +3559,31 @@ PrefabInstance:
       propertyPath: opponnetSelection
       value: 
       objectReference: {fileID: 863124053}
+    - target: {fileID: 6586314331370756212, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586314332012581290, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251456704060656400, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251456704708606119, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560762226131939700, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68a2bf82b8cc6ce4c87bb96bc60360d4, type: 3}
 --- !u!1001 &4999254232035873673
