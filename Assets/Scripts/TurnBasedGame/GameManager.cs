@@ -47,6 +47,7 @@ namespace DefaultNamespace.TurnBasedGame
 
         public void Initialize(Level level)
         {
+            IsGameFinished = false;
             TurnPanel.ShowHide(true);
             ActiveLevel = level;
             IsPlayerTurn = true;
@@ -149,7 +150,7 @@ namespace DefaultNamespace.TurnBasedGame
                 TurnPanel.TimerText.text = i.ToString();
                 yield return new WaitForSecondsRealtime(1);
             }
-
+            TurnPanel.TimerText.gameObject.SetActive(false);
             action?.Invoke();
         }
     }

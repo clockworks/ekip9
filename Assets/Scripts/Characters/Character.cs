@@ -52,12 +52,17 @@ namespace DefaultNamespace
                 ? GameManager.Instance.Player.SelectedOpponentCharacter
                 : GameManager.Instance.Opponent.SelectedOpponentCharacter;
             TargetCharacter = character;
-            
+
             if (IsPlayer)
             {
                 AttackButton.interactable = false;
                 GameManager.Instance.ActionExecuted(AttackActionPoint, IsPlayer);
+                GameManager.Instance.PlayerInputController.opponnetSelection.position = new Vector3(0, 30, 0);
+                GameManager.Instance.PlayerInputController.playerSelection.position = new Vector3(0, 30, 0);
             }
+            
+            GameManager.Instance.Player.SelectedOpponentCharacter = null;
+            GameManager.Instance.Opponent.SelectedOpponentCharacter = null;
         }
 
         public virtual void TakeDamage(int damage)

@@ -15,6 +15,7 @@ namespace DefaultNamespace
 
         public void Initialize()
         {
+            this.gameObject.SetActive(true);
             GameManager.Instance.Opponent = OpponentAI;
             GameManager.Instance.Player.SetCharacters(PlayerCharacters);
             GameManager.Instance.Opponent.SetCharacters(OpponnentChacarters);

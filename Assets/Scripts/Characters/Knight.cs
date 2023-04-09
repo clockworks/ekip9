@@ -18,7 +18,10 @@ namespace DefaultNamespace
                         StartCoroutine(GameManager.Instance.WaitAndExecute(() =>
                                                       {
                                                           TargetCharacter.TakeDamage(Damage);
-                                                          AttackButton.interactable = false;
+                                                          if (IsPlayer)
+                                                          {
+                                                            AttackButton.interactable = false;
+                                                          }
                                                           Model.transform.localPosition = Vector3.zero;
                                                       },
                                                       1

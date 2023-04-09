@@ -51,11 +51,10 @@ MonoBehaviour:
   CharacterPrefabs:
   - {fileID: 5623995700269385819, guid: dee6479ff66eb2a47b99ebb08d87c6b7, type: 3}
   - {fileID: 8199193192097530216, guid: a5e712df25b9feb418a920220b89f09e, type: 3}
-  - {fileID: 0}
+  - {fileID: 4774679919520183849, guid: 4f58daba2dacfee438b9fffb4d37aa43, type: 3}
   bodyPartPrefab: {fileID: 1176809833443005070, guid: 164ffdf4e24db834a805f78cef289d74,
     type: 3}
   BodyParts: []
-  CharacterType: 0
 --- !u!1001 &6501439070516112813
 PrefabInstance:
   m_ObjectHideFlags: 0

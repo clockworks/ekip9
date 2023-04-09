@@ -310,8 +310,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8199193192097530199}
-  - component: {fileID: 8664403137539476973}
   - component: {fileID: -7985062603011901317}
+  - component: {fileID: 8664403137539476973}
   m_Layer: 6
   m_Name: EArcher
   m_TagString: Untagged
@@ -337,32 +337,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8664403137539476973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8199193192097530216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f8a1d6d77d478390f3146abce737a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 3
-  Abilities: []
-  IsPlayer: 0
-  Damage: 3
-  AttackActionPoint: 2
-  HPText: {fileID: 1262236184696389407}
-  Animator: {fileID: 1419321274751900853}
-  Model: {fileID: 8199193191232511175}
-  AttackButton: {fileID: 0}
-  Canvas: {fileID: 0}
-  AttackPoint: {fileID: 9097584774392822103}
-  TargetCharacter: {fileID: 0}
-  Projectile: {fileID: 3169810762568856700, guid: 522160289a8cbaa4f8e8a9671773c204,
-    type: 3}
 --- !u!65 &-7985062603011901317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -376,6 +350,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.46, y: 6.09, z: 2.16}
   m_Center: {x: 0, y: 1.88, z: 0}
+--- !u!114 &8664403137539476973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199193192097530216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f8a1d6d77d478390f3146abce737a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 3
+  IsPlayer: 0
+  Damage: 3
+  AttackActionPoint: 2
+  HPText: {fileID: 1262236184696389407}
+  Animator: {fileID: 1419321274751900853}
+  Model: {fileID: 8199193191232511175}
+  AttackButton: {fileID: 0}
+  Canvas: {fileID: 0}
+  AttackPoint: {fileID: 9097584774392822103}
+  TargetCharacter: {fileID: 0}
+  Projectile: {fileID: 3169810762568856700, guid: 522160289a8cbaa4f8e8a9671773c204,
+    type: 3}
 --- !u!1001 &5693764941380024857
 PrefabInstance:
   m_ObjectHideFlags: 0
